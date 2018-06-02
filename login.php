@@ -54,7 +54,6 @@ if($status == 'true'){
   echo "\nUsername : ".$username;
   echo "\nBio : ".$bio;
   echo"\n";
-  break;
 }
 
 
