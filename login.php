@@ -89,7 +89,7 @@ function form(){
     echo"\n";
     echo "".$WH."---Your botlike is not actived.----";
     echo"\n";
-    echo "\nIP : ".$YL.getIp().$WH;
+    echo "\nIP : ".$YL."".getIp()."".$WH;
     echo "\nStatus : ".$RED."False".$WH;
     echo "\nUserID : null";
     echo "\nUsername : ".$username;
@@ -111,7 +111,7 @@ function form(){
     echo"\n";
     echo "".$WH."---Your botlike is actived.----";
     echo"\n";
-    echo "\nIP : ".$YL.getIp().$WH;
+    echo "\nIP : ".$YL."".getIp()."".$WH;
     echo "\nStatus : ".$OG."True".$WH;
     echo "\nUserID : ".$userid;
     echo "\nUsername : ".$username;
