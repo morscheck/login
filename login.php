@@ -79,7 +79,7 @@ function form(){
   $login = login($username,$password);
 
   $status = preg_match('/"authenticated": (.*?),/', $login[1], $status) ? $status[1] : null;
-  if(!$status == 'true'){
+  if($status == 'false'){
     echo"\n";
     echo "\nError : ".$RED."Username/password incorret.".$WH;
     echo"\n";
