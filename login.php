@@ -24,7 +24,8 @@ $password = trim(fgets(STDIN));
 echo "\n";
 echo "".$OR."Please wait checking username/password ...".$WH;
 echo"\n";
-echo "".$OR."Get cookies...".$WH;
+echo "\nError : ".$RED."Username/password incorret.".$WH;
+echo "\n".$OR."Get cookies...".$WH;
 echo"\n";
 echo"\n";
 
@@ -35,10 +36,10 @@ echo "\nUserID : 2345756";
 echo "\nUsername : ramadhani.pratama";
 echo "\nBio : 🌐 CEO & FOUNDER www.likergram.net 💻 Desktop Engineer / C# (FBSdk) 📩 mr.foxdhan@gmail.com 📱 WA +6282213269227";
 echo"\n";
-
+echo"\n";
 echo "".$WH."---Your botlike is not actived.----";
 echo"\n";
-echo "\nStatus : ".$OG."False".$WH;
+echo "\nStatus : ".$RED."False".$WH;
 echo "\nUserID : 2345756";
 echo "\nUsername : ramadhani.pratama";
 echo "\nBio : 🌐 CEO & FOUNDER www.likergram.net 💻 Desktop Engineer / C# (FBSdk) 📩 mr.foxdhan@gmail.com 📱 WA +6282213269227";
