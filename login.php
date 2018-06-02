@@ -105,8 +105,8 @@ if($status == 'true'){
   echo "".$WH."---Your botlike is not actived.----";
   echo"\n";
   echo "\nStatus : ".$RED."False".$WH;
-  echo "\nUserID : ".$userid;
+  echo "\nUserID : null";
   echo "\nUsername : ".$username;
-  echo "\nBio : ".$bio;
+  echo "\nBio : null";
   echo"\n";
 }
