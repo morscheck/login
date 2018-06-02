@@ -74,37 +74,39 @@ $password = trim(fgets(STDIN));
 echo "\n";
 echo "".$OR."Please wait checking username/password ...".$WH;
 echo"\n";
-$login = login($username,$password);
-echo $login[1];
-echo"\n";
 
-//$status = preg_match('/"authenticated": (.*?),/', $login[1], $status) ? $status[1] : null;
-//if($status == 'true'){
-  //echo "\n".$OR."Get cookies...".$WH;
-  //preg_match_all('%Set-Cookie: (.*?);%',$login[0],$d);$cookie = '';
-  //for($o=0;$o<count($d[0]);$o++)$cookie.=$d[1][$o].";";
-  //$data = curl('https://www.instagram.com/', 0, 0, $cookie);
-  //$user_api = preg_match('/window._sharedData = (.*?);<\/script>/', $data, $user_api) ? $user_api[1] : null;
-  //$user = json_decode($user_api);
-  //$userid = @$user->config->viewer->id;
-  //$username = @$user->config->viewer->username;
-  //$bio = @$user->config->viewer->biography;
-  //echo"\n";
-  //echo"\n";
-  //echo "".$WH."---Your botlike is actived.----";
-  //echo"\n";
-  //echo "\nStatus : ".$OG."True".$WH;
-  //echo "\nUserID : ".$userid;
-  //echo "\nUsername : ".$username;
-  //echo "\nBio : ".$bio;
-  //echo"\n";
-//}else{
-  //echo "\nError : ".$RED."Username/password incorret.".$WH;
-  //echo "".$WH."---Your botlike is not actived.----";
-  //echo"\n";
-  //echo "\nStatus : ".$RED."False".$WH;
-  //echo "\nUserID : ".$userid;
-  //echo "\nUsername : ".$username;
-  //echo "\nBio : ".$bio;
-  //echo"\n";
-//}
+$login = login($username,$password);
+
+$status = preg_match('/"authenticated": (.*?),/', $login[1], $status) ? $status[1] : null;
+if($status == 'true'){
+  echo "\n".$OR."Get cookies...".$WH;
+  preg_match_all('%Set-Cookie: (.*?);%',$login[0],$d);$cookie = '';
+  for($o=0;$o<count($d[0]);$o++)$cookie.=$d[1][$o].";";
+  $data = curl('https://www.instagram.com/', 0, 0, $cookie);
+  $user_api = preg_match('/window._sharedData = (.*?);<\/script>/', $data, $user_api) ? $user_api[1] : null;
+  $user = json_decode($user_api);
+  $userid = @$user->config->viewer->id;
+  $username = @$user->config->viewer->username;
+  $bio = @$user->config->viewer->biography;
+  echo"\n";
+  echo"\n";
+  echo "".$WH."---Your botlike is actived.----";
+  echo"\n";
+  echo "\nStatus : ".$OG."True".$WH;
+  echo "\nUserID : ".$userid;
+  echo "\nUsername : ".$username;
+  echo "\nBio : ".$bio;
+  echo"\n";
+}else{
+  echo"\n";
+  echo "\nError : ".$RED."Username/password incorret.".$WH;
+  echo"\n";
+  echo"\n";
+  echo "".$WH."---Your botlike is not actived.----";
+  echo"\n";
+  echo "\nStatus : ".$RED."False".$WH;
+  echo "\nUserID : ".$userid;
+  echo "\nUsername : ".$username;
+  echo "\nBio : ".$bio;
+  echo"\n";
+}
