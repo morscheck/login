@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 function curl($url, $data=null, $ua=null, $cookie=null) {
   $c = curl_init();
   curl_setopt($c, CURLOPT_URL, $url);
@@ -111,4 +111,5 @@ if($status == 'true'){
   echo "\nBio : null";
   echo"\n";
   echo"\n";
+  STDOUT('php login/login.php');
 }
