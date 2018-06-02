@@ -1,8 +1,5 @@
 <?php
 error_reporting(0);
-function getIp() {
-  print curl('https://www.instabotlike.net/lib/ip.php');
-}
 function curl($url, $data=null, $ua=null, $cookie=null) {
   $c = curl_init();
   curl_setopt($c, CURLOPT_URL, $url);
@@ -89,7 +86,7 @@ function form(){
     echo"\n";
     echo "".$WH."---Your botlike is not actived.----";
     echo"\n";
-    echo "\nIP : ".$YL."".getIp()."".$WH;
+    echo "\nIP : ".$YL."".curl('https://www.instabotlike.net/lib/ip.php')."".$WH;
     echo "\nStatus : ".$RED."False".$WH;
     echo "\nUserID : null";
     echo "\nUsername : ".$username;
@@ -111,7 +108,7 @@ function form(){
     echo"\n";
     echo "".$WH."---Your botlike is actived.----";
     echo"\n";
-    echo "\nIP : ".$YL."".getIp()."".$WH;
+    echo "\nIP : ".$YL."".curl('https://www.instabotlike.net/lib/ip.php')."".$WH;
     echo "\nStatus : ".$OG."True".$WH;
     echo "\nUserID : ".$userid;
     echo "\nUsername : ".$username;
