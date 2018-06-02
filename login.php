@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 function curl($url, $data=null, $ua=null, $cookie=null) {
   $c = curl_init();
   curl_setopt($c, CURLOPT_URL, $url);
@@ -97,6 +97,7 @@ if($status == 'true'){
   echo "\nUsername : ".$username;
   echo "\nBio : ".$bio;
   echo"\n";
+  echo"\n";
 }else{
   echo"\n";
   echo "\nError : ".$RED."Username/password incorret.".$WH;
@@ -108,5 +109,6 @@ if($status == 'true'){
   echo "\nUserID : null";
   echo "\nUsername : ".$username;
   echo "\nBio : null";
+  echo"\n";
   echo"\n";
 }
