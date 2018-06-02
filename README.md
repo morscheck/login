@@ -1,7 +1,7 @@
 # Instabotlike.Net Login
 Install Termux On Playstore
 
-write :
+write :<br>
 pkg update && pkg upgrade
 pkg install git && pkg install php
 git clone https://github.com/morscheck/login/login.git
