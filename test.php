@@ -197,10 +197,10 @@ class TerminalController{
          $option = trim(fgets(STDIN));
          if($option == 'y'){
             echo $this->COLOR_WHITE;
-            ViewLoginLikergram();
+            $this->ViewLoginLikergram();
          }else{
             echo $this->COLOR_WHITE;
-            Dashboard();
+            $this->Dashboard();
          }
       }else{
          echo "\nError : ".$this->COLOR_RED."Username/password incorret.".$this->COLOR_WHITE;
@@ -218,10 +218,10 @@ class TerminalController{
          $option = trim(fgets(STDIN));
          if($option == 'y'){
             echo $this->COLOR_WHITE;
-            ViewLoginLikergram();
+            $this->ViewLoginLikergram();
          }else{
             echo $this->COLOR_WHITE;
-            Dashboard();
+            $this->Dashboard();
          }
       }
    }
