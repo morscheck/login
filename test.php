@@ -3,23 +3,23 @@ class TerminalController{
    function __construct(){
       date_default_timezone_set("Asia/Jakarta");
       $this->date = date("Y-m-d");
-      $this->COLOR_NC = '\e[0m';
+      $this->COLOR_NC = "\e[0m";
       $this->COLOR_WHITE = "\e[1;37m";
-      $this->COLOR_BLACK='\e[0;30m';
-      $this->COLOR_BLUE='\e[0;34m';
-      $this->COLOR_LIGHT_BLUE='\e[1;34m';
-      $this->COLOR_GREEN='\e[0;32m';
-      $this->COLOR_LIGHT_GREEN='\e[1;32m';
-      $this->COLOR_CYAN='\e[0;36m';
-      $this->COLOR_LIGHT_CYAN='\e[1;36m';
-      $this->COLOR_RED='\e[0;31m';
-      $this->COLOR_LIGHT_RED='\e[1;31m';
-      $this->COLOR_PURPLE='\e[0;35m';
-      $this->COLOR_LIGHT_PURPLE='\e[1;35m';
-      $this->COLOR_BROWN='\e[0;33m';
-      $this->COLOR_YELLOW='\e[1;33m';
-      $this->COLOR_GRAY='\e[0;30m';
-      $this->COLOR_LIGHT_GRAY = '\e[0;37m';
+      $this->COLOR_BLACK = "\e[0;30m";
+      $this->COLOR_BLUE = "\e[0;34m";
+      $this->COLOR_LIGHT_BLUE = "\e[1;34m";
+      $this->COLOR_GREEN = "\e[0;32m";
+      $this->COLOR_LIGHT_GREEN = "\e[1;32m";
+      $this->COLOR_CYAN = "\e[0;36m";
+      $this->COLOR_LIGHT_CYAN = "\e[1;36m";
+      $this->COLOR_RED = "\e[0;31m";
+      $this->COLOR_LIGHT_RED = "\e[1;31m";
+      $this->COLOR_PURPLE = "\e[0;35m";
+      $this->COLOR_LIGHT_PURPLE = "\e[1;35m";
+      $this->COLOR_BROWN = "\e[0;33m";
+      $this->COLOR_YELLOW = "\e[1;33m";
+      $this->COLOR_GRAY = "\e[0;30m";
+      $this->COLOR_LIGHT_GRAY = "\e[0;37m";
    }
    public function instagram($ighost, $useragent, $url, $cookie = 0, $data = 0, $httpheader = array(), $proxy = 0, $userpwd = 0, $is_socks5 = 0){
       $url = $ighost ? 'https://i.instagram.com/api/v1/' . $url : $url;
