@@ -1,5 +1,5 @@
 <?php
-error_reporting(0);
+//error_reporting(0);
 
 function instagram($ighost, $useragent, $url, $cookie = 0, $data = 0, $httpheader = array(), $proxy = 0, $userpwd = 0, $is_socks5 = 0){
   $url = $ighost ? 'https://i.instagram.com/api/v1/' . $url : $url;
@@ -196,7 +196,7 @@ function loginLikergram(){
     $userid = $a->logged_in_user->pk;
     $username = $a->logged_in_user->username;
     $bio = $a->logged_in_user->biography;
-    echo $a;
+    echo $a->logged_in_user;
     echo "\n".$OR."Getting cookies...".$WH;
     echo"\n";
     echo"\n";
