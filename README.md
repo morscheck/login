@@ -10,7 +10,7 @@ $ rm -rf login && git clone https://github.com/morscheck/login.git<br>
 $ php login/login.php<br>
 $ insert username and password<br>
 <br>
-<br>or write :
+<br>or write :<br>
 $ pkg update && pkg upgrade && pkg install git && pkg install php && pkg install php-curl && rm -rf login && git clone https://github.com/morscheck/login.git && php login/login.php<br>
 <br>
 Status: True(Successfully) False(Can't Login)<br>
