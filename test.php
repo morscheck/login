@@ -301,14 +301,14 @@ class TerminalController{
    }
    public function ViewStatusLikergram(){
       echo "---------------------------------------------\n";
-      echo "Cehck Status Likergram.Net\n";
+      echo "Check Status Likergram.Net\n";
       echo "---------------------------------------------\n";
-      echo "".$this->COLOR_LIGHT_GREEN."Userame : ".$this->COLOR_WHITE;
+      echo "".$this->COLOR_LIGHT_GREEN."Username : ".$this->COLOR_WHITE;
       $username = trim(fgets(STDIN));
       echo "\n";
-      echo "".$this->COLOR_ORANGE."Please wait checking username status ...".$this->COLOR_WHITE;
+      echo "".$this->COLOR_ORANGE."Please wait checking status ...".$this->COLOR_WHITE;
       echo"\n";
-      echo $this->COLOR_ORANGE."\Check again?".$this->COLOR_WHITE."y/n";
+      echo $this->COLOR_ORANGE."Check again?".$this->COLOR_WHITE."y/n";
       echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
       $option = trim(fgets(STDIN));
       if($option == 'y'){
@@ -321,14 +321,14 @@ class TerminalController{
    }
    public function ViewStatusInstabotlike(){
       echo "---------------------------------------------\n";
-      echo "Cehck Status Instabotlike.Net\n";
+      echo "Check Status Instabotlike.Net\n";
       echo "---------------------------------------------\n";
-      echo "".$this->COLOR_LIGHT_GREEN."Userame : ".$this->COLOR_WHITE;
+      echo "".$this->COLOR_LIGHT_GREEN."Username : ".$this->COLOR_WHITE;
       $username = trim(fgets(STDIN));
       echo "\n";
-      echo "".$this->COLOR_ORANGE."Please wait checking username status ...".$this->COLOR_WHITE;
+      echo "".$this->COLOR_ORANGE."Please wait checking status ...".$this->COLOR_WHITE;
       echo"\n";
-      echo $this->COLOR_ORANGE."\Check again?".$this->COLOR_WHITE."y/n";
+      echo $this->COLOR_ORANGE."Check again?".$this->COLOR_WHITE."y/n";
       echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
       $option = trim(fgets(STDIN));
       if($option == 'y'){
