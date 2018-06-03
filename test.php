@@ -233,7 +233,7 @@ class TerminalController{
       echo "".$this->COLOR_LIGHT_GREEN."Password : ".$this->COLOR_BLACK;
       $password = trim(fgets(STDIN));
       echo "\n";
-      echo "".$$this->COLOR_ORANGE."Please wait checking username/password ...".$this->COLOR_WHITE;
+      echo "".$this->COLOR_ORANGE."Please wait checking username/password ...".$this->COLOR_WHITE;
       echo"\n";
 
       $login = $this->InstagramLoginInstabotlike($username,$password);
