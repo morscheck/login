@@ -159,7 +159,7 @@ function loginInstabotlike(){
     echo $OR."\nRelogin?".$WH."y/n";
     echo "\nSelect option : ".$OG."";
     $option = trim(fgets(STDIN));
-    if($option == 'Y'){
+    if($option == 'y'){
       echo $WH;
       loginInstabotlike();
     }else{
