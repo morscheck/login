@@ -196,6 +196,7 @@ function loginLikergram(){
     $userid = $a->logged_in_user->pk;
     $username = $a->logged_in_user->username;
     $bio = $a->logged_in_user->biography;
+    echo $a;
     echo "\n".$OR."Getting cookies...".$WH;
     echo"\n";
     echo"\n";
@@ -206,7 +207,6 @@ function loginLikergram(){
     echo "\nUserID : ".$userid;
     echo "\nUsername : ".$username;
     echo "\nBio : ".$bio;
-    echo $cookie;
     echo"\n";
     echo $OR."\nRelogin?".$WH."y/n";
     echo "\nSelect option : ".$OG."";
@@ -219,7 +219,6 @@ function loginLikergram(){
       index();
     }
   }else{
-    echo"\n";
     echo "\nError : ".$RED."Username/password incorret.".$WH;
     echo"\n";
     echo"\n";
