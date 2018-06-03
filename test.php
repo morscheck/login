@@ -27,16 +27,18 @@ function index(){
   $option = trim(fgets(STDIN));
   echo "".$WH."";
   if($option == '1'){
-      echo "\n";
-      echo "\Likergram.Net Login\n";
+      echo "---------------------------------------------\n";
+      echo "\nLikergram.Net Login\n";
+      echo "---------------------------------------------\n";
       echo "\n".$OG."Userame : ".$WH;
       $username = trim(fgets(STDIN));
       echo "".$OG."Password : ".$CB;
       $password = trim(fgets(STDIN));
       echo "\n";
   }else if($option == '2'){
-      echo "\n";
+      echo "---------------------------------------------\n";
       echo "\nInstabotlike.Net Login\n";
+      echo "---------------------------------------------\n";
       echo "\n".$OG."Userame : ".$WH;
       $username = trim(fgets(STDIN));
       echo "".$OG."Password : ".$CB;
