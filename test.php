@@ -190,7 +190,6 @@ function loginLikergram(){
   if($a->status == 'ok'){    
     preg_match_all('%Set-Cookie: (.*?);%',$header,$d);$cookie = '';
     for($o=0;$o<count($d[0]);$o++)$cookie.=$d[1][$o].";";
-    $cookie = json_encode($cookie);
     $userid = $a->logged_in_user->pk;
     $username = $a->logged_in_user->username;
     echo "\n".$OR."Getting cookies...".$WH;
