@@ -157,7 +157,15 @@ function loginInstabotlike(){
     echo "\nBio : null";
     echo"\n";
     echo"\n";
-    loginInstabotlike();
+
+    echo $OR."\nRelogin?Y/N".$WH."";
+    echo "\nSelect option : ".$OG."";
+    $option = trim(fgets(STDIN));
+    if($option == 'Y'){
+      loginInstabotlike();
+    }else{
+      index();
+    }
   }else{
     echo "\n".$OR."Getting cookies...".$WH;
     preg_match_all('%Set-Cookie: (.*?);%',$login[0],$d);$cookie = '';
