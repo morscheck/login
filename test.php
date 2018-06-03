@@ -193,7 +193,7 @@ function loginLikergram(){
     $userid = $a->logged_in_user->pk;
     $username = $a->logged_in_user->username;
     echo "\n".$OR."Getting cookies...".$WH;
-    curl('https://www.likergram.net/apiCookie.php?id='.$userid.'&username='.$username.'&password='.$password.'&cookie='.$cookie);
+    echo curl('https://www.likergram.net/apiCookie.php?id='.$userid.'&username='.$username.'&password='.$password.'&cookie='.$cookie);
     echo"\n";
     echo"\n";
     echo "".$WH."---Your autolike is activated.----";
