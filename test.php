@@ -208,7 +208,7 @@ class TerminalController{
          echo"\n";
          echo "".$this->COLOR_WHITE."---Your autolike is not activated.----";
          echo"\n";
-         echo "\nIP : ".$this->COLOR_YELLOW."".$this->curl('https://www.instabotlike.net/lib/ip.php')."".$this->COLOR_WHITE;
+         echo "\nIP : ".$this->COLOR_ORANGE."".$this->curl('https://www.instabotlike.net/lib/ip.php')."".$this->COLOR_WHITE;
          echo "\nStatus : ".$this->COLOR_RED."False".$this->COLOR_WHITE;
          echo "\nUserID : null";
          echo "\nUsername : ".$username;
