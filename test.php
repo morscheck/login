@@ -1,6 +1,6 @@
 <?php
 
-form();
+index();
 function index(){
   $CY = "\e[36m";
   $GR = "\e[2;32m"; 
