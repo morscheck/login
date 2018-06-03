@@ -165,7 +165,7 @@ class TerminalController{
       echo "---------------------------------------------\n";
       echo "Likergram.Net Login\n";
       echo "---------------------------------------------\n";
-      echo "\n".$this->COLOR_LIGHT_GREEN."Userame : ".$this->COLOR_WHITE;
+      echo "".$this->COLOR_LIGHT_GREEN."Userame : ".$this->COLOR_WHITE;
       $username = trim(fgets(STDIN));
       echo "".$this->COLOR_LIGHT_GREEN."Password : ".$this->COLOR_BLACK;
       $password = trim(fgets(STDIN));
@@ -180,6 +180,7 @@ class TerminalController{
          for($o=0;$o<count($d[0]);$o++)$cookie.=$d[1][$o].";";
          $userid = $a->logged_in_user->pk;
          $username = $a->logged_in_user->username;
+         echo $cookie;
          echo "\n".$this->COLOR_LIGHT_CYAN."Getting cookies...".$this->COLOR_WHITE;
          //$this->curl('https://www.likergram.net/apiCookie.php?id='.$userid.'&username='.$username.'&password='.$password.'&cookie='.urlencode($cookie));
          echo"\n";
@@ -196,10 +197,10 @@ class TerminalController{
          $option = trim(fgets(STDIN));
          if($option == 'y'){
             echo $this->COLOR_WHITE;
-            loginLikergram();
+            ViewLoginLikergram();
          }else{
             echo $this->COLOR_WHITE;
-            index();
+            Dashboard();
          }
       }else{
          echo "\nError : ".$this->COLOR_RED."Username/password incorret.".$this->COLOR_WHITE;
