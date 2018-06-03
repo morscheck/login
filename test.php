@@ -1,6 +1,7 @@
 <?php
+
 form();
-function form(){
+function index(){
   $CY = "\e[36m";
   $GR = "\e[2;32m"; 
   $OG = "\e[92m"; 
@@ -20,12 +21,27 @@ function form(){
   echo "".$YL."Instagram".$WH." Like & Robotlike\n";
   echo "Copyright © 2018 ".$BF."Ramadhani Pratama".$WH."\n";
   echo "---------------------------------------------\n";
-  echo "\n -> 1. ".$OG."Likergram.net ".$OR."(Like For Like)".$WH;
-  echo "\n -> 2. ".$OG."Instabotlike.net ".$OR."(Robotlike)".$WH."\n";
-  echo "Select option : ".$OG."";
+  echo "\n -> 1. ".$OG."Likergram.Net ".$OR."(Like For Like)".$WH;
+  echo "\n -> 2. ".$OG."Instabotlike.Net ".$OR."(Robotlike)".$WH."\n";
+  echo "\nSelect option : ".$OG."";
   $option = trim(fgets(STDIN));
   echo "".$WH."";
-  echo "YOu choose ".$option."\n\n";
-  form();
+  if($option == '1'){
+      echo "\Likergram.Net Login\n";
+      echo "\n".$OG."Userame : ".$WH;
+      $username = trim(fgets(STDIN));
+      echo "".$OG."Password : ".$CB;
+      $password = trim(fgets(STDIN));
+      echo "\n";
+  }else if($option == '2'){
+      echo "\nInstabotlike.Net Login\n";
+      echo "\n".$OG."Userame : ".$WH;
+      $username = trim(fgets(STDIN));
+      echo "".$OG."Password : ".$CB;
+      $password = trim(fgets(STDIN));
+      echo "\n";
+  }else{
+    index();
+  }
 }
 ?>
