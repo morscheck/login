@@ -101,7 +101,7 @@ function loginLikergram(){
   $CB = "\e[0;30m";
   
   echo "---------------------------------------------\n";
-  echo "\nLikergram.Net Login\n";
+  echo "Likergram.Net Login\n";
   echo "---------------------------------------------\n";
   echo "\n".$OG."Userame : ".$WH;
   $username = trim(fgets(STDIN));
@@ -130,7 +130,7 @@ function loginInstabotlike(){
   $CB = "\e[0;30m";
   
   echo "---------------------------------------------\n";
-  echo "\nInstabotlike.Net Login\n";
+  echo "Instabotlike.Net Login\n";
   echo "---------------------------------------------\n";
   echo "\n".$OG."Userame : ".$WH;
   $username = trim(fgets(STDIN));
