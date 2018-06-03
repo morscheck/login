@@ -1,55 +1,4 @@
 <?php
-error_reporting(0);
-function curl($url, $data=null, $ua=null, $cookie=null) {
-  $c = curl_init();
-  curl_setopt($c, CURLOPT_URL, $url);
-  if($data != null){
-    curl_setopt($c, CURLOPT_POST, true);
-    curl_setopt($c, CURLOPT_POSTFIELDS, $data);
-  }
-  curl_setopt($c, CURLOPT_FOLLOWLOCATION, true);
-  curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($c, CURLOPT_SSL_VERIFYPEER, false);
-  if($cookie != null){
-    curl_setopt($c, CURLOPT_COOKIE, $cookie);
-  }
-  if($ua != null){
-    curl_setopt($c, CURLOPT_USERAGENT, $ua);
-  }
-  $hmm = curl_exec($c);
-  curl_close($c);
-  return $hmm;
-}
-function login($username, $password){
-  $instagram = curl_init(); 
-  curl_setopt($instagram, CURLOPT_URL, "https://www.instagram.com/accounts/login/ajax/"); 
-  curl_setopt($instagram, CURLOPT_SSL_VERIFYPEER, false); 
-  curl_setopt($instagram, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($instagram, CURLOPT_FOLLOWLOCATION, 1);
-  $data = curl('https://www.instagram.com/');
-  $csrftoken = preg_match('/"csrf_token":"(.*?)",/', $data, $csrftoken) ? $csrftoken[1] : null;
-  $rolout = preg_match('/"rollout_hash":"(.*?)",/', $data, $rolout) ? $rolout[1] : null;
-  curl_setopt($instagram, CURLOPT_HTTPHEADER, array(
-    'Host: www.instagram.com',
-    'X-CSRFToken: '.$csrftoken,
-    'X-Instagram-AJAX: '.$rolout,
-    'Content-Type: application/x-www-form-urlencoded',
-  ));
-  curl_setopt($instagram, CURLOPT_POSTFIELDS, 'username='.$username.'&password='.$password.'&queryParams=%7B%7D');
-  curl_setopt($instagram, CURLOPT_HEADER, 1);
-  curl_setopt($instagram, CURLOPT_COOKIE, '');
-  curl_setopt($instagram, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0');
-  $response = curl_exec($instagram);
-  $httpcode = curl_getinfo($instagram);
-  if(!$httpcode){
-    return false;
-  }else{
-    $header = substr($response, 0, curl_getinfo($instagram, CURLINFO_HEADER_SIZE));
-    $body = substr($response, curl_getinfo($instagram, CURLINFO_HEADER_SIZE));
-    curl_close($instagram);
-    return array($header, $body);
-  }
-}
 form();
 function form(){
   $CY = "\e[36m";
@@ -66,11 +15,17 @@ function form(){
   $B = "\e[1m"; 
   $CC = "\e[0m";
   $CB = "\e[0;30m";
-
-  echo "\n".$CB."Instagram".$WH." Like & Robotlike";
-  echo "\nCopyright © 2018 ".$BF."Ramadhani Pratama".$WH."\n";
+  
+  echo "---------------------------------------------\n";
+  echo "".$YL."Instagram".$WH." Like & Robotlike\n";
+  echo "Copyright © 2018 ".$BF."Ramadhani Pratama".$WH."\n";
+  echo "---------------------------------------------\n";
   echo "\n -> 1. ".$OG."Likergram.net ".$OR."(Like For Like)".$WH;
-  echo "\n -> 2. ".$OG."Instabotlike.net ".$OR."(Robotlike)".$WH;
+  echo "\n -> 2. ".$OG."Instabotlike.net ".$OR."(Robotlike)".$WH."\n";
+  echo "Select option : ".$OG."";
   $option = trim(fgets(STDIN));
+  echo "".$WH."";
+  echo "YOu choose ".$option."\n\n";
+  form();
 }
 ?>
