@@ -187,8 +187,16 @@ function loginInstabotlike(){
     echo "\nUsername : ".$username;
     echo "\nBio : ".$bio;
     echo"\n";
-    echo"\n";
-    index();
+    echo $OR."\nRelogin?".$WH."y/n";
+    echo "\nSelect option : ".$OG."";
+    $option = trim(fgets(STDIN));
+    if($option == 'y'){
+      echo $WH;
+      loginInstabotlike();
+    }else{
+      echo $WH;
+      index();
+    }
   }
 }
 ?>
