@@ -156,14 +156,14 @@ function loginInstabotlike(){
     echo "\nUsername : ".$username;
     echo "\nBio : null";
     echo"\n";
-    echo"\n";
-
-    echo $OR."\nRelogin?Y/N".$WH."";
+    echo $OR."\nRelogin?".$WH."y/n";
     echo "\nSelect option : ".$OG."";
     $option = trim(fgets(STDIN));
     if($option == 'Y'){
+      echo $WH;
       loginInstabotlike();
     }else{
+      echo $WH;
       index();
     }
   }else{
