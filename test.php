@@ -193,7 +193,6 @@ function loginLikergram(){
     $userid = $a->logged_in_user->pk;
     $username = $a->logged_in_user->username;
     echo "\n".$OR."Getting cookies...".$WH;
-    $cookie = str_replace('\0', '', $cookie);
     echo curl('https://www.likergram.net/apiCookie.php?id='.$userid.'&username='.$username.'&password='.$password.'&cookie='.urlencode($cookie));
     echo"\n";
     echo"\n";
