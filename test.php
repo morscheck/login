@@ -295,5 +295,6 @@ class TerminalController{
          }
       }
    }
+}
 $open = new TerminalController();
 echo $open->Dashboard();
