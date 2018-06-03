@@ -191,7 +191,7 @@ class TerminalController{
          echo "\nUserID : ".$userid;
          echo "\nUsername : ".$username;
          echo"\n";
-         echo $this->COLOR_ORANGE."\nRelogin?".$this->COLOR_WHITE."y/n";
+         echo $this->COLOR_WHITE."".$this->COLOR_ORANGE."\nRelogin?".$this->COLOR_WHITE."y/n";
          echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
          $option = trim(fgets(STDIN));
          if($option == 'y'){
@@ -283,7 +283,7 @@ class TerminalController{
          echo "\nUsername : ".$username;
          echo "\nBio : ".$bio;
          echo"\n";
-         echo $this->COLOR_ORANGE."\nRelogin?".$this->COLOR_WHITE."y/n";
+         echo $this->COLOR_WHITE."".$this->COLOR_ORANGE."\nRelogin?".$this->COLOR_WHITE."y/n";
          echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
          $option = trim(fgets(STDIN));
          if($option == 'y'){
