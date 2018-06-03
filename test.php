@@ -147,7 +147,9 @@ class TerminalController{
       echo "Copyright © 2018 ".$this->COLOR_BLUE."Ramadhani Pratama".$this->COLOR_WHITE."\n";
       echo "---------------------------------------------\n";
       echo "\n -> 1. ".$this->COLOR_LIGHT_GREEN."Likergram.Net ".$this->COLOR_ORANGE."(Like For Like)".$this->COLOR_WHITE;
+      echo "\n       ".$this->COLOR_LIGHT_GREEN."/statuslfl ".$this->COLOR_ORANGE."(Check status lfl)".$this->COLOR_WHITE."\n";
       echo "\n -> 2. ".$this->COLOR_LIGHT_GREEN."Instabotlike.Net ".$this->COLOR_ORANGE."(Robotlike)".$this->COLOR_WHITE."\n";
+      echo "\n       ".$this->COLOR_LIGHT_GREEN."/statusbotlike ".$this->COLOR_ORANGE."(Check status botlike)".$this->COLOR_WHITE."\n";
       echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
       $option = trim(fgets(STDIN));
       echo "".$this->COLOR_WHITE."";
