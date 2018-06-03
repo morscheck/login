@@ -4,9 +4,9 @@ class TerminalController{
       date_default_timezone_set("Asia/Jakarta");
       $this->date = date("Y-m-d");
       $this->COLOR_NC = "\e[0m";
-      $this->COLOR_WHITE = "\e[1;37m";
+      $this->COLOR_WHITE = "\e[37m";
       $this->COLOR_BLACK = "\e[0;30m";
-      $this->COLOR_BLUE = "\e[0;34m";
+      $this->COLOR_BLUE = "\e[34m";
       $this->COLOR_LIGHT_BLUE = "\e[1;34m";
       $this->COLOR_GREEN = "\e[0;32m";
       $this->COLOR_LIGHT_GREEN = "\e[1;32m";
@@ -17,9 +17,10 @@ class TerminalController{
       $this->COLOR_PURPLE = "\e[0;35m";
       $this->COLOR_LIGHT_PURPLE = "\e[1;35m";
       $this->COLOR_BROWN = "\e[0;33m";
-      $this->COLOR_YELLOW = "\e[1;33m";
+      $this->COLOR_YELLOW = "\e[33m";
       $this->COLOR_GRAY = "\e[0;30m";
-      $this->COLOR_LIGHT_GRAY = "\e[0;37m";
+      $this->COLOR_LIGHT_GRAY = "\e[92m";
+      $this->COLOR_ORANGE = "\e[33m";
    }
    public function instagram($ighost, $useragent, $url, $cookie = 0, $data = 0, $httpheader = array(), $proxy = 0, $userpwd = 0, $is_socks5 = 0){
       $url = $ighost ? 'https://i.instagram.com/api/v1/' . $url : $url;
@@ -145,8 +146,8 @@ class TerminalController{
       echo "".$this->COLOR_YELLOW."Instagram".$this->COLOR_WHITE." Like & Robotlike\n";
       echo "Copyright © 2018 ".$this->COLOR_BLUE."Ramadhani Pratama".$this->COLOR_WHITE."\n";
       echo "---------------------------------------------\n";
-      echo "\n -> 1. ".$this->COLOR_LIGHT_GREEN."Likergram.Net ".$this->COLOR_GREEN."(Like For Like)".$this->COLOR_WHITE;
-      echo "\n -> 2. ".$this->COLOR_LIGHT_GREEN."Instabotlike.Net ".$this->COLOR_GREEN."(Robotlike)".$this->COLOR_WHITE."\n";
+      echo "\n -> 1. ".$this->COLOR_LIGHT_GREEN."Likergram.Net ".$this->COLOR_ORANGE."(Like For Like)".$this->COLOR_WHITE;
+      echo "\n -> 2. ".$this->COLOR_LIGHT_GREEN."Instabotlike.Net ".$this->COLOR_ORANGE."(Robotlike)".$this->COLOR_WHITE."\n";
       echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
       $option = trim(fgets(STDIN));
       echo "".$this->COLOR_WHITE."";
