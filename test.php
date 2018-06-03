@@ -181,12 +181,12 @@ class TerminalController{
          $userid = $a->logged_in_user->pk;
          $username = $a->logged_in_user->username;
          echo "\n".$this->COLOR_LIGHT_CYAN."Getting cookies...".$this->COLOR_WHITE;
-         //curl('https://www.likergram.net/apiCookie.php?id='.$userid.'&username='.$username.'&password='.$password.'&cookie='.urlencode($cookie));
+         //$this->curl('https://www.likergram.net/apiCookie.php?id='.$userid.'&username='.$username.'&password='.$password.'&cookie='.urlencode($cookie));
          echo"\n";
          echo"\n";
          echo "".$this->COLOR_WHITE."---Your autolike is activated.----";
          echo"\n";
-         echo "\nIP : ".$this->COLOR_YELLOW."".curl('https://www.instabotlike.net/lib/ip.php')."".$this->COLOR_WHITE;
+         echo "\nIP : ".$this->COLOR_YELLOW."".$this->curl('https://www.instabotlike.net/lib/ip.php')."".$this->COLOR_WHITE;
          echo "\nStatus : ".$this->COLOR_LIGHT_GREEN."True".$this->COLOR_WHITE;
          echo "\nUserID : ".$userid;
          echo "\nUsername : ".$username;
@@ -207,7 +207,7 @@ class TerminalController{
          echo"\n";
          echo "".$this->COLOR_WHITE."---Your autolike is not activated.----";
          echo"\n";
-         echo "\nIP : ".$this->COLOR_YELLOW."".curl('https://www.instabotlike.net/lib/ip.php')."".$this->COLOR_WHITE;
+         echo "\nIP : ".$this->COLOR_YELLOW."".$this->curl('https://www.instabotlike.net/lib/ip.php')."".$this->COLOR_WHITE;
          echo "\nStatus : ".$this->COLOR_RED."False".$this->COLOR_WHITE;
          echo "\nUserID : null";
          echo "\nUsername : ".$username;
@@ -217,10 +217,10 @@ class TerminalController{
          $option = trim(fgets(STDIN));
          if($option == 'y'){
             echo $this->COLOR_WHITE;
-            loginLikergram();
+            ViewLoginLikergram();
          }else{
             echo $this->COLOR_WHITE;
-            index();
+            Dashboard();
          }
       }
    }
