@@ -157,6 +157,10 @@ class TerminalController{
          $this->ViewLoginLikergram();
       }else if($option == '2'){
          $this->ViewLoginInstabotlike();
+      }else if($option =='/statuslfl'){
+         $this->ViewStatusLikergram();
+      }else if($option =='/statusbotlike'){
+         $this->ViewStatusInstabotlike();
       }else{
          $this->Dashboard();
       }
@@ -293,6 +297,46 @@ class TerminalController{
             echo $this->COLOR_WHITE;
             $this->Dashboard();
          }
+      }
+   }
+   public function ViewStatusLikergram(){
+      echo "---------------------------------------------\n";
+      echo "Cehck Status Likergram.Net\n";
+      echo "---------------------------------------------\n";
+      echo "".$this->COLOR_LIGHT_GREEN."Userame : ".$this->COLOR_WHITE;
+      $username = trim(fgets(STDIN));
+      echo "\n";
+      echo "".$this->COLOR_ORANGE."Please wait checking username status ...".$this->COLOR_WHITE;
+      echo"\n";
+      echo $this->COLOR_ORANGE."\Check again?".$this->COLOR_WHITE."y/n";
+      echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
+      $option = trim(fgets(STDIN));
+      if($option == 'y'){
+         echo $this->COLOR_WHITE;
+         $this->ViewStatusLikergram();
+      }else{
+         echo $this->COLOR_WHITE;
+         $this->Dashboard();
+      }
+   }
+   public function ViewStatusInstabotlike(){
+      echo "---------------------------------------------\n";
+      echo "Cehck Status Instabotlike.Net\n";
+      echo "---------------------------------------------\n";
+      echo "".$this->COLOR_LIGHT_GREEN."Userame : ".$this->COLOR_WHITE;
+      $username = trim(fgets(STDIN));
+      echo "\n";
+      echo "".$this->COLOR_ORANGE."Please wait checking username status ...".$this->COLOR_WHITE;
+      echo"\n";
+      echo $this->COLOR_ORANGE."\Check again?".$this->COLOR_WHITE."y/n";
+      echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
+      $option = trim(fgets(STDIN));
+      if($option == 'y'){
+         echo $this->COLOR_WHITE;
+         $this->ViewStatusLikergram();
+      }else{
+         echo $this->COLOR_WHITE;
+         $this->Dashboard();
       }
    }
 }
