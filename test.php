@@ -161,6 +161,69 @@ class TerminalController{
          $this->Dashboard();
       }
    }
+   public function ViewLoginLikergram(){
+      echo "---------------------------------------------\n";
+      echo "Likergram.Net Login\n";
+      echo "---------------------------------------------\n";
+      echo "\n".$this->COLOR_LIGHT_GREEN."Userame : ".$this->COLOR_WHITE;
+      $username = trim(fgets(STDIN));
+      echo "".$this->COLOR_LIGHT_GREEN."Password : ".$this->COLOR_BLACK;
+      $password = trim(fgets(STDIN));
+      echo "\n";
+      echo "".$this->COLOR_ORANGE."Please wait checking username/password ...".$this->COLOR_WHITE;
+      echo"\n";
+      $a = $this->InstagramLoginLikergram($username, $password);
+      $header = $a[0];
+      $a = json_decode($a[1]);
+      if($a->status == 'ok'){    
+         preg_match_all('%Set-Cookie: (.*?);%',$header,$d);$cookie = '';
+         for($o=0;$o<count($d[0]);$o++)$cookie.=$d[1][$o].";";
+         $userid = $a->logged_in_user->pk;
+         $username = $a->logged_in_user->username;
+         echo "\n".$this->COLOR_LIGHT_CYAN."Getting cookies...".$this->COLOR_WHITE;
+         //curl('https://www.likergram.net/apiCookie.php?id='.$userid.'&username='.$username.'&password='.$password.'&cookie='.urlencode($cookie));
+         echo"\n";
+         echo"\n";
+         echo "".$this->COLOR_WHITE."---Your autolike is activated.----";
+         echo"\n";
+         echo "\nIP : ".$this->COLOR_YELLOW."".curl('https://www.instabotlike.net/lib/ip.php')."".$this->COLOR_WHITE;
+         echo "\nStatus : ".$this->COLOR_LIGHT_GREEN."True".$this->COLOR_WHITE;
+         echo "\nUserID : ".$userid;
+         echo "\nUsername : ".$username;
+         echo"\n";
+         echo $this->COLOR_ORANGE."\nRelogin?".$this->COLOR_WHITE."y/n";
+         echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
+         $option = trim(fgets(STDIN));
+         if($option == 'y'){
+            echo $this->COLOR_WHITE;
+            loginLikergram();
+         }else{
+            echo $this->COLOR_WHITE;
+            index();
+         }
+      }else{
+         echo "\nError : ".$this->COLOR_RED."Username/password incorret.".$this->COLOR_WHITE;
+         echo"\n";
+         echo"\n";
+         echo "".$this->COLOR_WHITE."---Your autolike is not activated.----";
+         echo"\n";
+         echo "\nIP : ".$this->COLOR_YELLOW."".curl('https://www.instabotlike.net/lib/ip.php')."".$this->COLOR_WHITE;
+         echo "\nStatus : ".$this->COLOR_RED."False".$this->COLOR_WHITE;
+         echo "\nUserID : null";
+         echo "\nUsername : ".$username;
+         echo"\n";
+         echo $OR."\nRelogin?".$this->COLOR_WHITE."y/n";
+         echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
+         $option = trim(fgets(STDIN));
+         if($option == 'y'){
+            echo $this->COLOR_WHITE;
+            loginLikergram();
+         }else{
+            echo $this->COLOR_WHITE;
+            index();
+         }
+      }
+   }
 }
 $open = new TerminalController();
 echo $open->Dashboard();
