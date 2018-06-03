@@ -194,7 +194,6 @@ function loginLikergram(){
     $cookie = json_encode($cookie);
     $userid = $a->logged_in_user->pk;
     $username = $a->logged_in_user->username;
-    $bio = $a->logged_in_user->biography;
     echo "\n".$OR."Getting cookies...".$WH;
     echo"\n";
     echo"\n";
@@ -204,7 +203,6 @@ function loginLikergram(){
     echo "\nStatus : ".$OG."True".$WH;
     echo "\nUserID : ".$userid;
     echo "\nUsername : ".$username;
-    echo "\nBio : ".$bio;
     echo"\n";
     echo $OR."\nRelogin?".$WH."y/n";
     echo "\nSelect option : ".$OG."";
@@ -226,7 +224,6 @@ function loginLikergram(){
     echo "\nStatus : ".$RED."False".$WH;
     echo "\nUserID : null";
     echo "\nUsername : ".$username;
-    echo "\nBio : null";
     echo"\n";
     echo $OR."\nRelogin?".$WH."y/n";
     echo "\nSelect option : ".$OG."";
