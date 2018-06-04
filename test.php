@@ -27,13 +27,15 @@ class TerminalController{
       $this->base = 'https://api.facebook.com/restserver.php';
    }
    public function Dashboard($access_token){
-      echo "\n -> 1. ".$this->COLOR_LIGHT_GREEN."Robotlike Timeline ".$this->COLOR_ORANGE."(Automatic like on timeline)".$this->COLOR_WHITE."\n";
-      echo "\n -> 2. ".$this->COLOR_LIGHT_GREEN."Autopoke Friends ".$this->COLOR_ORANGE."(Automatic poke all friends)".$this->COLOR_WHITE."\n";
-      echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
+      echo "-> 1. ".$this->COLOR_LIGHT_GREEN."Robotlike Timeline ".$this->COLOR_ORANGE."(Automatic like on timeline)".$this->COLOR_WHITE."\n";
+      echo "-> 2. ".$this->COLOR_LIGHT_GREEN."Autopoke Friends ".$this->COLOR_ORANGE."(Automatic poke all friends)".$this->COLOR_WHITE."\n";
+      echo "Select option : ".$this->COLOR_LIGHT_GREEN."";
       $option = trim(fgets(STDIN));
       echo "".$this->COLOR_WHITE."";
       if($option == '1'){
          //$this->Robotlike();
+      }else{
+         $this->Dashboard($access_token);
       }
    }
    public function MenuLogin(){
