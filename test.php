@@ -26,13 +26,7 @@ class TerminalController{
       $this->api_key = '3e7c78e35a76a9299309885393b02d97';
       $this->base = 'https://api.facebook.com/restserver.php';
    }
-   public function Robotlike($access_token){
-      echo "\nLimit Feed : ".$this->COLOR_LIGHT_GREEN."";
-      $limit = trim(fgets(STDIN));
-      echo "".$this->COLOR_WHITE."";
-      echo "Delay Second : ".$this->COLOR_LIGHT_GREEN."";
-      $delay = trim(fgets(STDIN));
-      echo "".$this->COLOR_WHITE."";
+   public function Robotlike($limit, $delay, $access_token){
       $api = json_decode($this->curl('https://graph.facebook.com/me/home?fields=id&limit='.$limit.'&access_token='.$access_token));
       if(file_exists('logfeed.txt')){
          $log=json_encode(file('logfeed.txt'));
@@ -46,9 +40,10 @@ class TerminalController{
             fwrite($y,$x);
             fclose($y);
             echo "".$this->COLOR_LIGHT_GREEN."[".$this->time."]".$this->COLOR_WHITE." ".$data->id."\n";
+            sleep($delay);
          }
       }
-      $this->Robotlike($access_token);
+      $this->Robotlike($limit, $delay, $access_token);
    }
    public function Dashboard($access_token){
       echo "-> 1. ".$this->COLOR_LIGHT_GREEN."Robotlike Timeline ".$this->COLOR_ORANGE."(Automatic like on timeline)".$this->COLOR_WHITE."\n";
@@ -57,7 +52,13 @@ class TerminalController{
       $option = trim(fgets(STDIN));
       echo "".$this->COLOR_WHITE."";
       if($option == '1'){
-         $this->Robotlike($access_token);
+         echo "\nLimit Feed : ".$this->COLOR_LIGHT_GREEN."";
+         $limit = trim(fgets(STDIN));
+         echo "".$this->COLOR_WHITE."";
+         echo "Delay Second : ".$this->COLOR_LIGHT_GREEN."";
+         $delay = trim(fgets(STDIN));
+         echo "".$this->COLOR_WHITE."";
+         $this->Robotlike($limit, $delay, $access_token);
       }else{
          $this->Dashboard($access_token);
       }
