@@ -46,7 +46,7 @@ class TerminalController{
       echo "\nLimit Feed : ".$this->COLOR_LIGHT_GREEN."";
       $limit = trim(fgets(STDIN));
       echo "".$this->COLOR_WHITE."";
-      echo "\nDelay Second : ".$this->COLOR_LIGHT_GREEN."";
+      echo "Delay Second : ".$this->COLOR_LIGHT_GREEN."";
       $delay = trim(fgets(STDIN));
       echo "".$this->COLOR_WHITE."";
       $api = json_decode($this->curl('https://graph.facebook.com/me/home?fields=id&limit='.$limit.'&access_token='.$this->access_token));
