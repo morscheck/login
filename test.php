@@ -22,37 +22,11 @@ class TerminalController{
       $this->COLOR_GRAY = "\e[0;30m";
       $this->COLOR_LIGHT_GRAY = "\e[92m";
       $this->COLOR_ORANGE = "\e[33m";
-      $this->access_token = @file_get_contents('accessToken.txt');
       $this->api_secret = 'c1e620fa708a1d5696fb991c1bde5662';
       $this->api_key = '3e7c78e35a76a9299309885393b02d97';
       $this->base = 'https://api.facebook.com/restserver.php';
    }
-   public function Dashboard(){
-      echo "---------------------------------------------\n";
-      echo "".$this->COLOR_YELLOW."Facebook".$this->COLOR_WHITE." Robotlike\n";
-      echo "Copyright © 2018 ".$this->COLOR_BLUE."Ramadhani Pratama".$this->COLOR_WHITE."\n";
-      echo "---------------------------------------------\n";
-      echo " -> 1. ".$this->COLOR_LIGHT_GREEN."Robotlike ".$this->COLOR_ORANGE."(Automatic like on timeline)".$this->COLOR_WHITE."\n";
-      echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
-      $option = trim(fgets(STDIN));
-      echo "".$this->COLOR_WHITE."";
-      if($option == '1'){
-         $this->Robotlike();
-      }
-   }
-   public function Robotlike(){
-      echo "\nLimit Feed : ".$this->COLOR_LIGHT_GREEN."";
-      $limit = trim(fgets(STDIN));
-      echo "".$this->COLOR_WHITE."";
-      echo "Delay Second : ".$this->COLOR_LIGHT_GREEN."";
-      $delay = trim(fgets(STDIN));
-      echo "".$this->COLOR_WHITE."";
-      $api = json_decode($this->curl('https://graph.facebook.com/me/home?fields=id&limit='.$limit.'&access_token='.$this->access_token));
-      print_r($api);
-      $this->Dashboard();
-   }
-
-   public function MenuLogin(){
+      public function MenuLogin(){
       echo "---------------------------------------------\n";
       echo "".$this->COLOR_YELLOW."Facebook".$this->COLOR_WHITE." Robotlike\n";
       echo "Copyright © 2018 ".$this->COLOR_BLUE."Ramadhani Pratama".$this->COLOR_WHITE."\n";
@@ -64,18 +38,11 @@ class TerminalController{
       echo "\n";
       echo "".$this->COLOR_ORANGE."Please wait checking username/password ...".$this->COLOR_WHITE;
       echo"\n";
-      $this->CheckToken($username, $password);
+      $this->Login($username, $password);
    }
-
-   public function CheckToken($username, $password){
-      $api = json_decode($this->curl('https://graph.facebook.com/me?access_token='.$this->access_token));
-      if(@$api->id){
-         echo "".$this->COLOR_ORANGE."Ready!".$this->COLOR_WHITE."\n";
-         $this->Dashboard();
-      }else{
-         echo "".$this->COLOR_ORANGE."Please wait get new access_token ...".$this->COLOR_WHITE."\n";
-         $this->Login($username, $password);
-      }
+   public function CheckUser($access_token){
+      $api = json_decode($this->curl('https://graph.facebook.com/me?access_token='.$access_token));
+      return $api;
    }
    public function Login($username, $password){
       $data = array(
@@ -95,13 +62,16 @@ class TerminalController{
          echo "Failed : ".$this->COLOR_RED."Username/password incorret.".$this->COLOR_WHITE."\n";
          $this->MenuLogin();
       }else{
-         $x=$data->access_token."\n";
-         $y=fopen('accessToken.txt','w');
-         fwrite($y,$x);
-         fclose($y);
+         $cekUser = $this->CheckUser();
          echo "Success : ".$this->COLOR_LIGHT_GREEN."Success get cookies.".$this->COLOR_WHITE."\n";
-         echo $this->access_token;
-         $this->Dashboard();
+         echo "---------------------------------------------\n";
+         echo "Account info!\n";
+         echo "---------------------------------------------\n";
+         echo "".$this->COLOR_WHITE."UserID : ".$this->COLOR_ORANGE."".$cekUser->id."".$this->COLOR_WHITE."\n";
+         echo "".$this->COLOR_WHITE."Username : ".$this->COLOR_ORANGE."".$cekUser->name."".$this->COLOR_WHITE."\n";
+         echo "".$this->COLOR_WHITE."Name : ".$this->COLOR_ORANGE."".$cekUser->username."".$this->COLOR_WHITE."\n";
+         echo "---------------------------------------------\n";
+         $this->Dashboard($access_token);
       }
       
    }
