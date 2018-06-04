@@ -68,15 +68,13 @@ class TerminalController{
    }
 
    public function CheckToken($username, $password){
-      if(!file_exists($this->file)){
+      $api = json_decode($this->curl('https://graph.facebook.com/me?access_token='.$this->access_token));
+      if(@$api->id){
+         echo "".$this->COLOR_ORANGE."Ready!".$this->COLOR_WHITE."\n";
+         $this->Dashboard();
+      }else{
          echo "".$this->COLOR_ORANGE."Please wait get new access_token ...".$this->COLOR_WHITE."\n";
          $this->Login($username, $password);
-      }else{
-         $api = json_decode($this->curl('https://graph.facebook.com/me?access_token='.$this->access_token));
-         if(@$api->id){
-            echo "".$this->COLOR_ORANGE."Ready!".$this->COLOR_WHITE."\n";
-            $this->Dashboard();
-         }
       }
    }
    public function Login($username, $password){
