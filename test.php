@@ -2,7 +2,7 @@
 class TerminalController{
    function __construct(){
       date_default_timezone_set("Asia/Jakarta");
-      $this->time = date("h:i");
+      $this->time = date("h:i:s");
       $this->date = date("Y-m-d");
       $this->COLOR_NC = "\e[0m";
       $this->COLOR_WHITE = "\e[37m";
@@ -47,7 +47,7 @@ class TerminalController{
    }
    public function Dashboard($access_token){
       echo "-> 1. ".$this->COLOR_LIGHT_GREEN."Robotlike Timeline ".$this->COLOR_ORANGE."(Automatic like on timeline)".$this->COLOR_WHITE."\n";
-      echo "-> 2. ".$this->COLOR_LIGHT_GREEN."Autopoke Friends ".$this->COLOR_ORANGE."(Automatic poke all friends)".$this->COLOR_WHITE."\n";
+      //echo "-> 2. ".$this->COLOR_LIGHT_GREEN."Autopoke Friends ".$this->COLOR_ORANGE."(Automatic poke all friends)".$this->COLOR_WHITE."\n";
       echo "Select option : ".$this->COLOR_LIGHT_GREEN."";
       $option = trim(fgets(STDIN));
       echo "".$this->COLOR_WHITE."";
@@ -58,8 +58,8 @@ class TerminalController{
          echo "Delay Second : ".$this->COLOR_LIGHT_GREEN."";
          $delay = trim(fgets(STDIN));
          echo "".$this->COLOR_WHITE."";
-         echo "\nVolume Down + C to stop.";
-         echo "\n-> Robotlike ".$this->COLOR_LIGHT_GREEN."running!\n".$this->COLOR_ORANGE."Collecting feed...\n\n";
+         echo "\nVolume Down + C to stop.\n";
+         echo "\n-> Robotlike ".$this->COLOR_LIGHT_GREEN."running!\n".$this->COLOR_ORANGE."Please wait collecting feed...\n";
          echo "".$this->COLOR_WHITE."";
          $this->Robotlike($limit, $delay, $access_token);
       }else{
