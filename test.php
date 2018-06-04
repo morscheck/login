@@ -57,7 +57,9 @@ class TerminalController{
          echo "".$this->COLOR_WHITE."";
          echo "Delay Second : ".$this->COLOR_LIGHT_GREEN."";
          $delay = trim(fgets(STDIN));
-         echo "\n-> Robotlike ".$this->COLOR_LIGHT_GREEN."running!";
+         echo "".$this->COLOR_WHITE."";
+         echo "\nVolume Down + C to stop.";
+         echo "\n-> Robotlike ".$this->COLOR_LIGHT_GREEN."running!\n".$this->COLOR_ORANGE."Collecting feed...\n\n";
          echo "".$this->COLOR_WHITE."";
          $this->Robotlike($limit, $delay, $access_token);
       }else{
