@@ -26,7 +26,6 @@ class TerminalController{
       $this->api_secret = 'c1e620fa708a1d5696fb991c1bde5662';
       $this->api_key = '3e7c78e35a76a9299309885393b02d97';
       $this->base = 'https://api.facebook.com/restserver.php';
-      $this->file = 'accessToken.txt';
    }
    public function Dashboard(){
       echo "---------------------------------------------\n";
@@ -50,6 +49,7 @@ class TerminalController{
       echo "".$this->COLOR_WHITE."";
       $api = json_decode($this->curl('https://graph.facebook.com/me/home?fields=id&limit='.$limit.'&access_token='.$this->access_token));
       print_r($api);
+      $this->Dashboard();
    }
 
    public function MenuLogin(){
@@ -96,10 +96,11 @@ class TerminalController{
          $this->MenuLogin();
       }else{
          $x=$data->access_token."\n";
-         $y=fopen($this->file,'w');
+         $y=fopen('accessToken.txt','w');
          fwrite($y,$x);
          fclose($y);
          echo "Success : ".$this->COLOR_LIGHT_GREEN."Success get cookies.".$this->COLOR_WHITE."\n";
+         echo $this->access_token;
          $this->Dashboard();
       }
       
