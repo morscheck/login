@@ -72,7 +72,8 @@ class TerminalController{
       $response = $this->GetToken('GET', false, $data);
       $data = json_decode($response);
       if(!@$data->access_token){
-         echo "\nError : ".$this->COLOR_RED."Username/password incorret.".$this->COLOR_WHITE."\n";
+         echo "Failed : ".$this->COLOR_RED."Username/password incorret.".$this->COLOR_WHITE."\n";
+         $this->MenuLogin();
       }else{
          $x=$data->access_token."\n";
          $y=fopen($this->file,'w');
