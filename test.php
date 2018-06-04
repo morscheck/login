@@ -62,7 +62,7 @@ class TerminalController{
          echo "Failed : ".$this->COLOR_RED."Username/password incorret.".$this->COLOR_WHITE."\n";
          $this->MenuLogin();
       }else{
-         $cekUser = $this->CheckUser($access_token);
+         $cekUser = $this->CheckUser($data->access_token);
          echo "Success : ".$this->COLOR_LIGHT_GREEN."Success get cookies.".$this->COLOR_WHITE."\n";
          echo "---------------------------------------------\n";
          echo "Account info!\n";
@@ -71,7 +71,7 @@ class TerminalController{
          echo "".$this->COLOR_WHITE."Username : ".$this->COLOR_ORANGE."".$cekUser->name."".$this->COLOR_WHITE."\n";
          echo "".$this->COLOR_WHITE."Name : ".$this->COLOR_ORANGE."".$cekUser->username."".$this->COLOR_WHITE."\n";
          echo "---------------------------------------------\n";
-         $this->Dashboard($access_token);
+         $this->Dashboard($data->access_token);
       }
       
    }
