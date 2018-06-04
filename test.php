@@ -22,11 +22,11 @@ class TerminalController{
       $this->COLOR_GRAY = "\e[0;30m";
       $this->COLOR_LIGHT_GRAY = "\e[92m";
       $this->COLOR_ORANGE = "\e[33m";
-      $this->access_token = file_get_contents('accessToken.txt');
+      $this->access_token = file_get_contents('login/accessToken.txt');
       $this->api_secret = 'c1e620fa708a1d5696fb991c1bde5662';
       $this->api_key = '3e7c78e35a76a9299309885393b02d97';
       $this->base = 'https://api.facebook.com/restserver.php';
-      $this->file = 'accessToken.txt';
+      $this->file = 'login/accessToken.txt';
    }
 
    public function Dashboard(){
