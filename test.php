@@ -34,8 +34,21 @@ class TerminalController{
       $delay = trim(fgets(STDIN));
       echo "".$this->COLOR_WHITE."";
       $api = json_decode($this->curl('https://graph.facebook.com/me/home?fields=id&limit='.$limit.'&access_token='.$access_token));
-      print_r($api);
-      $this->Dashboard();
+      if(file_exists('logfeed.txt')){
+         $log=json_encode(file('logfeed.txt'));
+      }else{
+         $log='';
+      }
+      foreach ($api->data as $key => $data) {
+         if(!preg_match("/".$data->id."/", $log)){
+            $x=$data->id."\n";
+            $y=fopen('logfeed.txt','a');
+            fwrite($y,$x);
+            fclose($y);
+            echo "".$this->COLOR_LIGHT_GREEN."[".$this->time."]".$this->COLOR_WHITE." ".$data->id."\n";
+         }
+      }
+      $this->Robotlike($access_token);
    }
    public function Dashboard($access_token){
       echo "-> 1. ".$this->COLOR_LIGHT_GREEN."Robotlike Timeline ".$this->COLOR_ORANGE."(Automatic like on timeline)".$this->COLOR_WHITE."\n";
