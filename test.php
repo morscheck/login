@@ -28,6 +28,31 @@ class TerminalController{
       $this->base = 'https://api.facebook.com/restserver.php';
       $this->file = 'login/accessToken.txt';
    }
+
+   public function Dashboard(){
+      echo "---------------------------------------------\n";
+      echo "".$this->COLOR_YELLOW."Facebook".$this->COLOR_WHITE." Robotlike\n";
+      echo "Copyright © 2018 ".$this->COLOR_BLUE."Ramadhani Pratama".$this->COLOR_WHITE."\n";
+      echo "---------------------------------------------\n";
+      echo " -> 1. ".$this->COLOR_LIGHT_GREEN."Robotlike ".$this->COLOR_ORANGE."(Automatic like on timeline)".$this->COLOR_WHITE."\n";
+      echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
+      $option = trim(fgets(STDIN));
+      echo "".$this->COLOR_WHITE."";
+      if($option == '1'){
+         $this->Robotlike();
+      }
+   }
+   public function Robotlike(){
+      echo "\nLimit Feed : ".$this->COLOR_LIGHT_GREEN."";
+      $limit = trim(fgets(STDIN));
+      echo "".$this->COLOR_WHITE."";
+      echo "\nDelay Second : ".$this->COLOR_LIGHT_GREEN."";
+      $delay = trim(fgets(STDIN));
+      echo "".$this->COLOR_WHITE."";
+      $api = json_decode($this->curl('https://graph.facebook.com/me/home?fields=id&limit='.$limit.'&access_token='.$this->access_token));
+      print $api;
+   }
+
    public function MenuLogin(){
       echo "---------------------------------------------\n";
       echo "".$this->COLOR_YELLOW."Facebook".$this->COLOR_WHITE." Robotlike\n";
@@ -42,9 +67,7 @@ class TerminalController{
       echo"\n";
       $this->CheckToken($username, $password);
    }
-   public function Dashboard(){
 
-   }
    public function CheckToken($username, $password){
       if(!file_exists($this->file)){
          echo "".$this->COLOR_ORANGE."Please wait get new access_token ...".$this->COLOR_WHITE."\n";
@@ -57,6 +80,7 @@ class TerminalController{
          }
       }
    }
+
    public function Login($username, $password){
       $data = array(
          "api_key" => $this->api_key,
@@ -83,6 +107,7 @@ class TerminalController{
       }
       $this->Dashboard();
    }
+
    public function SignCreator(&$data){
       $sig = "";
       foreach($data as $key => $value){
@@ -92,6 +117,7 @@ class TerminalController{
       $sig = md5($sig);
       return $data['sig'] = $sig;
    }
+
    public function UserAgent(){
       $user_agents = array(
          "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13D15 Safari Line/5.9.5",
@@ -103,14 +129,14 @@ class TerminalController{
       $useragent = $user_agents[array_rand($user_agents)];
       return $useragent;
    }
+
    public function GetToken($method = 'GET', $url = false, $data){
       $c = curl_init();
       $opts = array(
       CURLOPT_URL => ($url ? $url : $this->base).($method == 'GET' ? '?'.http_build_query($data) : ''),
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_SSL_VERIFYPEER => false,
-      CURLOPT_USERAGENT => $this->UserAgent()
-   );
+      CURLOPT_USERAGENT => $this->UserAgent());
       if($method == 'POST'){
          $opts[CURLOPT_POST] = true;
          $opts[CURLOPT_POSTFIELDS] = $data;
@@ -120,6 +146,7 @@ class TerminalController{
       curl_close($c);
       return $d;
    }
+
    public function curl($url, $data=null, $ua=null, $cookie=null){
       $c = curl_init();
       curl_setopt($c, CURLOPT_URL, $url);
