@@ -26,7 +26,17 @@ class TerminalController{
       $this->api_key = '3e7c78e35a76a9299309885393b02d97';
       $this->base = 'https://api.facebook.com/restserver.php';
    }
-      public function MenuLogin(){
+   public function Dashboard($access_token){
+      echo "\n -> 1. ".$this->COLOR_LIGHT_GREEN."Robotlike Timeline ".$this->COLOR_ORANGE."(Automatic like on timeline)".$this->COLOR_WHITE."\n";
+      echo "\n -> 2. ".$this->COLOR_LIGHT_GREEN."Autopoke Friends ".$this->COLOR_ORANGE."(Automatic poke all friends)".$this->COLOR_WHITE."\n";
+      echo "\nSelect option : ".$this->COLOR_LIGHT_GREEN."";
+      $option = trim(fgets(STDIN));
+      echo "".$this->COLOR_WHITE."";
+      if($option == '1'){
+         //$this->Robotlike();
+      }
+   }
+   public function MenuLogin(){
       echo "---------------------------------------------\n";
       echo "".$this->COLOR_YELLOW."Facebook".$this->COLOR_WHITE." Robotlike\n";
       echo "Copyright © 2018 ".$this->COLOR_BLUE."Ramadhani Pratama".$this->COLOR_WHITE."\n";
