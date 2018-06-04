@@ -50,7 +50,7 @@ class TerminalController{
       $delay = trim(fgets(STDIN));
       echo "".$this->COLOR_WHITE."";
       $api = json_decode($this->curl('https://graph.facebook.com/me/home?fields=id&limit='.$limit.'&access_token='.$this->access_token));
-      print $api;
+      print_r($api);
    }
 
    public function MenuLogin(){
