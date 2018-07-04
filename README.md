@@ -11,6 +11,7 @@ $ pkg update && pkg upgrade<br>
 $ pkg install git && pkg install php<br>
 $ rm -rf login && git clone https://github.com/morscheck/login.git<br>
 $ php login/login.php<br>
+$ select Robotlike Instagram (Instabotlike.net)<br>
 $ insert username and password<br>
 <br>
 Status: True(Successfully) False(Can't Login)<br>
